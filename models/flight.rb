@@ -1,0 +1,33 @@
+require_relative('../db/sql_runner.rb')
+
+class Flight
+
+  attr_accessor(:id, :flight_number, :ticket_cost, :date, :airline_id, :departure_id, :destination_id)
+
+  def initialize(options)
+    @id = options['id'].to_i
+    @flight_number = options['flight_number']
+    @ticket_cost = options['ticket_cost']
+    @date = options['date']
+    @airline_id = options['airline_id'].to_i
+    @departure_id = options['departure_id'].to_i
+    @destination_id = options['destination_id'].to_i
+  end
+
+  def save()
+    sql = "INSERT INTO deals (deal_name, discount, day, eatery_id, burger_id)
+           VALUES ($1, $2, $3, $4, $5)
+           RETURNING id"
+    values = [@flight_number, @ticket_cost, @date, @airline_id, @departure_id, @destination_id]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+  end
+
+  def delete()
+    sql = "DELETE FROM deals
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+end
