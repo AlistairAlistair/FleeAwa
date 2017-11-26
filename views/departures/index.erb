@@ -1,0 +1,16 @@
+<h1>Departures</h1>
+
+<table>
+  <tr>
+    <th>Airport Name</th>
+    <th></th>
+    <th>City</th>
+  </tr>
+  <% for departure in @departures %>
+  <tr>
+    <td><%= departure.departure_airport_name %></td>
+    <td>|</td>
+    <td><%= departure.departure_city %></td>
+  </tr>
+  <% end %>
+</table>

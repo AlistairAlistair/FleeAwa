@@ -4,7 +4,7 @@ require_relative('../models/departure')
 
 get '/departures' do # index
   @departures = Departure.all()
-  erb( :"departure/index" )
+  erb( :"departures/index" )
 end
 
 get '/departures/new' do
