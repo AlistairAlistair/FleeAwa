@@ -29,6 +29,8 @@ CREATE TABLE flights (
   ticket_cost FLOAT(2),
   flight_date DATE,
   capacity INT8,
+  available_seats INT8,
+  status VARCHAR(255),
   airline_id INT8 REFERENCES airlines(id),
   departure_id INT8 REFERENCES departures(id),
   destination_id INT8 REFERENCES destinations(id)
