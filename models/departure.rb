@@ -26,4 +26,10 @@ class Departure
     SqlRunner.run( sql, values )
   end
 
+  def self.delete_all()
+  sql = "DELETE FROM departures"
+  values = []
+  SqlRunner.run( sql, values )
+end
+
 end
