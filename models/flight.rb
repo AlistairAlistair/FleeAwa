@@ -65,6 +65,24 @@ class Flight
     return result
   end
 
+  def destination
+    sql = "SELECT * FROM destinations
+    WHERE id = $1"
+    values = [@destination_id]
+    destination = SqlRunner.run( sql, values )
+    result = Destination.new( destination.first )
+    return result
+  end
+
+  def airline
+    sql = "SELECT * FROM airlines
+    WHERE id = $1"
+    values = [@airline_id]
+    airline = SqlRunner.run( sql, values )
+    result = Airline.new( airline.first )
+    return result
+  end
+
 
 
 end
