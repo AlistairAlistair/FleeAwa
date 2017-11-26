@@ -11,6 +11,13 @@ class Airline
     @email = options['email']
   end
 
+  def self.all()
+    sql = "SELECT * FROM airlines"
+    values = []
+    results = SqlRunner.run( sql, values )
+    return results.map { |airline| Airline.new( airline ) }
+  end
+
   def save()
     sql = "INSERT INTO airlines (airline_name, phone, email)
            VALUES ($1, $2, $3)

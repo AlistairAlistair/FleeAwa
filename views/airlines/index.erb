@@ -1,0 +1,20 @@
+<h1>Airlines</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Phone</th>
+    <th></th>
+    <th>Email</th>
+  </tr>
+  <% for airline in @airlines %>
+  <tr>
+    <td><%= airline.airline_name %></td>
+    <td>|</td>
+    <td><%= airline.phone %></td>
+    <td>|</td>
+    <td><%= airline.email %></td>
+  </tr>
+  <% end %>
+</table>
