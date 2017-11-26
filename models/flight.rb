@@ -36,6 +36,6 @@ class Flight
   sql = "DELETE FROM flights"
   values = []
   SqlRunner.run( sql, values )
-end
+  end
 
 end
