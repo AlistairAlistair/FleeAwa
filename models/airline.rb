@@ -50,11 +50,11 @@ class Airline
   end
 
   def update()
-  sql = "UPDATE airlines
-        SET (airline_name, phone, email) = ( $1, $2, $3 )
-        WHERE id = $4"
-  values = [@airline_name, @phone, @email, @id]
-  SqlRunner.run( sql, values )
-end
+    sql = "UPDATE airlines
+          SET (airline_name, phone, email) = ( $1, $2, $3 )
+          WHERE id = $4"
+    values = [@airline_name, @phone, @email, @id]
+    SqlRunner.run( sql, values )
+  end
 
 end

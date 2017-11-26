@@ -18,13 +18,11 @@ post '/airlines' do
   redirect to("/airlines")
 end
 
-#EDIT
 get '/airlines/:id/edit' do
   @airline = Airline.find(params[:id])
   erb (:"airlines/edit")
 end
 
-#UPDATE
 put '/airlines/:id' do
   Airline.new(params).update
   redirect to "/airlines"

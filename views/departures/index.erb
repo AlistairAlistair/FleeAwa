@@ -11,6 +11,17 @@
     <td><%= departure.departure_airport_name %></td>
     <td>|</td>
     <td><%= departure.departure_city %></td>
+    <td>
+      <form method="get" action="/departures/<%= departure.id %>/edit">
+        <button class="big-button button">Edit</button>
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>
+
+<form method="get" action="/departures/new">
+
+  <button class="big-button button">Add a new Departure Airport</button>
+
+</form>

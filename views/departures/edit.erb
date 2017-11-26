@@ -1,0 +1,33 @@
+<h2>
+  Edit Departure Details
+</h2>
+
+<form method="post" action="/departures/<%= @departure.id %>">
+  <input type="hidden" name="_method" value="put"/>
+    <div class="field-group">
+      <label for="departure-name-field" class="label">Airport Name:</label>
+      <div class="field">
+        <input
+          type="text"
+          name="departure_airport_name"
+          id="departure-name-field"
+          value="<%= @departure.departure_airport_name %>"
+          required
+        />
+     </div>
+    </div>
+
+    <div class="field-group">
+      <label for="city-field" class="label">City:</label>
+      <div class="field">
+        <input
+          type="text"
+          name="departure_city"
+          id="city-field"
+          value="<%= @departure.departure_city %>"
+          required
+        />
+      </div>
+    </div>
+  <button class="big-button button">Update Departure Airport</button>
+</form>
