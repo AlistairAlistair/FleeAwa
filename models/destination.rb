@@ -11,6 +11,13 @@ class Destination
     @country = options['country']
   end
 
+  def self.all()
+    sql = "SELECT * FROM destinations"
+    values = []
+    results = SqlRunner.run( sql, values )
+    return results.map { |destination| Destination.new( destination ) }
+  end
+
   def save()
     sql = "INSERT INTO destinations (destination_airport_name, destination_city, country)
            VALUES ($1, $2, $3)

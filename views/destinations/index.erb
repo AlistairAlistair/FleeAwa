@@ -1,20 +1,20 @@
-<h1>Airlines</h1>
+<h1>Destinations</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Airport Name</th>
     <th></th>
-    <th>Phone</th>
+    <th>City</th>
     <th></th>
-    <th>Email</th>
+    <th>Country</th>
   </tr>
-  <% for airline in @airlines %>
+  <% for destination in @destinations %>
   <tr>
-    <td><%= airline.airline_name %></td>
+    <td><%= destination.destination_airport_name %></td>
     <td>|</td>
-    <td><%= airline.phone %></td>
+    <td><%= destination.destination_city %></td>
     <td>|</td>
-    <td><%= airline.email %></td>
+    <td><%= destination.country %></td>
   </tr>
   <% end %>
 </table>

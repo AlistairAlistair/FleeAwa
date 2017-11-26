@@ -18,6 +18,13 @@ class Flight
     @destination_id = options['destination_id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM flights"
+    values = []
+    results = SqlRunner.run( sql, values )
+    return results.map { |flight| Flight.new( flight ) }
+  end
+
   def save()
     sql = "INSERT INTO flights (flight_number, ticket_cost, flight_date, capacity, available_seats, status, airline_id, departure_id, destination_id)
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)

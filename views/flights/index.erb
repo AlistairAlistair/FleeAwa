@@ -1,20 +1,32 @@
-<h1>Airlines</h1>
+<h1>Flights</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Date</th>
     <th></th>
-    <th>Phone</th>
+    <th>Number</th>
     <th></th>
-    <th>Email</th>
+    <th>Departure</th>
+    <th></th>
+    <th>Destination</th>
+    <th></th>
+    <th>Airline</th>
+    <th></th>
+    <th>Status</th>
   </tr>
-  <% for airline in @airlines %>
+  <% for flight in @flights %>
   <tr>
-    <td><%= airline.airline_name %></td>
+    <td><%= flight.flight_date %></td>
     <td>|</td>
-    <td><%= airline.phone %></td>
+    <td><%= flight.flight_number %></td>
     <td>|</td>
-    <td><%= airline.email %></td>
+    <td><%= flight.departure_id%></td>
+    <td>|</td>
+    <td><%= flight.destination_id %></td>
+    <td>|</td>
+    <td><%= flight.airline_id %></td>
+    <td>|</td>
+    <td><%= flight.status %></td>
   </tr>
   <% end %>
 </table>
