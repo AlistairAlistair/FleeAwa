@@ -2,19 +2,22 @@
 <form method="POST" action="/departures">
   <div class="form-wrapper">
 
-    <div class="form-el">
+    <div class="field-group">
       <label for="departure_airport_name">Airport Name:</label>
-      <input type="text" name="departure_airport_name" id="departure_airport_name"/>
+      <div class="field">
+        <input type="text" name="departure_airport_name" id="departure_airport_name"/>
+      </div>
     </div>
 
-    <div class="form-el">
-      <label for="departure_city">Airport City</label>
-      <input type="text" name="departure_city" id="departure_city"/>
+    <div class="field-group">
+      <label for="departure_city">City:</label>
+      <div class="field">
+        <input type="text" name="departure_city" id="departure_city"/>
+      </div>
     </div>
 
-    <div class="form-el">
-      <input type="submit" value="Submit Airport"/>
-    </div>
+    <button class="big-button button">Submit
+    </button>
 
   </div>
 </form>

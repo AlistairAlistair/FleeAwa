@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Destination
 
-  attr_accessor( :destination_airport_name, :destination_city, :country)
+  attr_accessor(:id, :destination_airport_name, :destination_city, :country)
 
   def initialize(options)
     @id = options['id'].to_i
@@ -47,6 +47,14 @@ class Destination
     result = SqlRunner.run(sql, values).first
     destination = Destination.new(result)
     return destination
+  end
+
+  def update()
+    sql = "UPDATE destinations
+          SET (destination_airport_name, destination_city, country) = ($1, $2, $3)
+          WHERE id = $4"
+    values = [@destination_airport_name, @destination_city, @country, @id]
+    SqlRunner.run( sql, values)
   end
 
 end

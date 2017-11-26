@@ -16,3 +16,13 @@ post '/destinations' do
   destination.save
   redirect to("/destinations")
 end
+
+get '/destinations/:id/edit' do
+  @destination = Destination.find(params[:id])
+  erb (:"destinations/edit")
+end
+
+put '/destinations/:id' do
+  Destination.new(params).update
+  redirect to "/destinations"
+end

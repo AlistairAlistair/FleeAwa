@@ -1,25 +1,30 @@
-<h2>Add a new Destination</h2>
+<h2>Add a new Destination Airport</h2>
 <form method="POST" action="/destinations">
   <div class="form-wrapper">
 
-    <div class="form-el">
+    <div class="field-group">
       <label for="destination_airport_name">Airport Name:</label>
-      <input type="text" name="destination_airport_name" id="destination_airport_name"/>
+      <div class="field">
+        <input type="text" name="destination_airport_name" id="destination_airport_name"/>
+      </div>
     </div>
 
-    <div class="form-el">
-      <label for="destination_city">Phone Number:</label>
-      <input type="text" name="destination_city" id="destination_city"/>
+    <div class="field-group">
+      <label for="destination_city">City:</label>
+      <div class="field">
+        <input type="text" name="destination_city" id="destination_city"/>
+      </div>
     </div>
 
-    <div class="form-el">
-      <label for="country">Email:</label>
-      <input type="text" name="country" id="country"/>
+    <div class="field-group">
+      <label for="country">Country:</label>
+      <div class="field">
+        <input type="text" name="country" id="country"/>
+      </div>
     </div>
 
-    <div class="form-el">
-      <input type="submit" value="Submit Destination"/>
-    </div>
+    <button class="big-button button">Submit
+    </button>
 
   </div>
 </form>

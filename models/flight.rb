@@ -2,8 +2,8 @@ require_relative('../db/sql_runner.rb')
 
 class Flight
 
-  attr_accessor(:flight_number, :ticket_cost, :flight_date, :capacity, :status, :airline_id, :departure_id, :destination_id)
-  attr_reader :id
+  attr_accessor(:id, :flight_number, :ticket_cost, :flight_date, :capacity, :status, :airline_id, :departure_id, :destination_id)
+
 
   def initialize(options)
     @id = options['id'].to_i
