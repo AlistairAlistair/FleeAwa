@@ -57,4 +57,8 @@ class Airline
     SqlRunner.run( sql, values )
   end
 
+  def self.map_items(airline_data)
+    return airline_data.map { |airline| Airline.new(airline) }
+  end
+
 end

@@ -83,6 +83,19 @@ class Flight
     return result
   end
 
+  def update()
+    sql = "UPDATE airlines
+          SET (flight_number, ticket_cost, flight_date, capacity, available_seats, status, airline_id, departure_id, destination_id)
+          = ( $1, $2, $3, $4, $5, $6, $7, $8, $9 )
+          WHERE id = $10"
+    values = [@flight_number, @ticket_cost, @flight_date, @capacity, @available_seats, @status, @airline_id, @departure_id, @destination_id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.map_items(flight_data)
+    return flight_data.map { |flight| Flight.new(flight) }
+  end
+
 
 
 end

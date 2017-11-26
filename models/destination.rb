@@ -57,4 +57,8 @@ class Destination
     SqlRunner.run( sql, values)
   end
 
+  def self.map_items(destination_data)
+    return destination_data.map { |destination| Destination.new(destination) }
+  end
+
 end

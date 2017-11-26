@@ -27,6 +27,17 @@
     <td><%= flight.airline.airline_name %></td>
     <td>|</td>
     <td><%= flight.status %></td>
+    <td>
+      <form method="get" action="/flights/<%= flight.id %>/edit">
+        <button class="big-button button">Edit</button>
+      </form>
+    </td>
   </tr>
   <% end %>
-</table>
+  </table>
+
+  <form method="get" action="/flights/new">
+
+  <button class="big-button button">Add a new Flight</button>
+
+  </form>

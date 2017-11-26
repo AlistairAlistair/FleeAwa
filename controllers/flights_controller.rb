@@ -16,3 +16,13 @@ post '/flights' do
   flight.save
   redirect to("/flights")
 end
+
+get '/flights/:id/edit' do
+  @flight = Flight.find(params[:id])
+  erb (:"flights/edit")
+end
+
+put '/flights/:id' do
+  flight.new(params).update
+  redirect to "/flights"
+end

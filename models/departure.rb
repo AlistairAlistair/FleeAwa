@@ -56,4 +56,8 @@ class Departure
     SqlRunner.run( sql, values)
   end
 
+  def self.map_items(departure_data)
+    return departure_data.map { |departure| Departure.new(departure) }
+  end
+
 end
