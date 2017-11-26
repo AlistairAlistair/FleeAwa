@@ -42,9 +42,29 @@ class Flight
   end
 
   def self.delete_all()
-  sql = "DELETE FROM flights"
-  values = []
-  SqlRunner.run( sql, values )
+    sql = "DELETE FROM flights"
+    values = []
+    SqlRunner.run( sql, values )
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM flights
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    flight = Flight.new(result)
+    return flight
+  end
+
+  def departure
+    sql = "SELECT * FROM departures
+    WHERE id = $1"
+    values = [@departure_id]
+    departure = SqlRunner.run( sql, values )
+    result = Departure.new( departure.first )
+    return result
+  end
+
+
 
 end
