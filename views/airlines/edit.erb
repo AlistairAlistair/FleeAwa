@@ -1,0 +1,52 @@
+
+<h2>
+  Edit Airline Details
+</h2>
+
+<form method="post" action="/airlines/<%= @airline.id %>">
+  <input type="hidden" name="_method" value="put"/>
+
+    <div class="field-group">
+      <label for="airline-name-field" class="label">Airline Name:</label>
+      <div class="field">
+        <input
+          type="text"
+          name="airline_name"
+          id="airline-name-field"
+          value="<%= @airline.airline_name %>"
+          required
+        />
+     </div>
+    </div>
+
+    <div class="field-group">
+      <label for="phone-field" class="label">Phone Number:</label>
+      <div class="field">
+        <input
+          type="text"
+          name="phone"
+          id="airline-phone-field"
+          value="<%= @airline.phone %>"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="email-field" class="label">Email:</label>
+      <div class="field">
+        <input
+          type="text"
+          name="email"
+          id="airline-email"
+          value="<%= @airline.email %>"
+          required
+        />
+      </div>
+    </div>
+
+
+
+  <button class="big-button button">Update Airline</button>
+
+</form>

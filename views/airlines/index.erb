@@ -15,6 +15,17 @@
     <td><%= airline.phone %></td>
     <td>|</td>
     <td><%= airline.email %></td>
+    <td>
+      <form method="get" action="/airlines/<%= airline.id %>/edit">
+         <button class="big-button button">Edit</button>
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>
+
+<form method="get" action="/airlines/new">
+
+  <button class="big-button button">Add a new Airline</button>
+
+</form>

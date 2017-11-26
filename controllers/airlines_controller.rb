@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+
 require_relative('../models/airline')
 
 get '/airlines' do # index
@@ -15,4 +16,16 @@ post '/airlines' do
   airline = Airline.new(params)
   airline.save
   redirect to("/airlines")
+end
+
+#EDIT
+get '/airlines/:id/edit' do
+  @airline = Airline.find(params[:id])
+  erb (:"airlines/edit")
+end
+
+#UPDATE
+put '/airlines/:id' do
+  Airline.new(params).update
+  redirect to "/airlines"
 end
