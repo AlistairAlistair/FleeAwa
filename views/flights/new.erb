@@ -5,72 +5,78 @@
     <div class="field-group">
       <label for="flight_number">Flight Number:</label>
       <div class="field">
-      <input type="text" name="flight_number" id="flight_number"/>
+        <input type="text" name="flight_number" id="flight_number"/>
       </div>
     </div>
 
     <div class="field-group">
       <label for="ticket_cost">Ticket Price:</label>
       <div class="field">
-      <input type="number" name="ticket_cost" id="ticket_cost"/>
+        <input type="number" name="ticket_cost" id="ticket_cost"/>
       </div>
     </div>
 
     <div class="field-group">
       <label for="flight_date">Date:</label>
       <div class="field">
-      <input type="date" name="flight_date" id="flight_date"/>
+        <input type="date" name="flight_date" id="flight_date"/>
       </div>
     </div>
 
     <div class="field-group">
       <label for="capacity">Total Seats:</label>
       <div class="field">
-      <input type="number" name="capacity" id="capacity"/>
+        <input type="number" name="capacity" id="capacity"/>
       </div>
     </div>
 
     <div class="field-group">
       <label for="available_seats">Available Seats:</label>
       <div class="number">
-      <input type="text" name="available_seats" id="available_seats"/>
+        <input type="number" name="available_seats" id="available_seats"/>
       </div>
     </div>
 
     <div class="field-group">
-      <label for="status">Flight Status:</label>
-      <div class="field">
-      <input type="text" name="status" id="status"/>
-      </div>
+      <label>
+        Select an Airline:
+        <select name="airline_id">
+          <% for airline in @airlines %>
+          <option value="<%= airline.id %>"><%= airline.airline_name %></option>
+          <% end %>
+        </select>
+      </label>
     </div>
 
     <div class="field-group">
-      <label for="airline_select">Airline:</label>
-      <select name="airline_id" id="airline_select">
-        <% @airlines.each do |airline| %>
-            <option><%= airline.airline_name %></option>
-        <% end %>
-      </select>
+      <label>
+        Select an Departure:
+        <select name="departure_id">
+          <% for departure in @departures %>
+          <option value="<%= departure.id %>"><%= departure.departure_airport_name %></option>
+          <% end %>
+        </select>
+      </label>
     </div>
 
     <div class="field-group">
-      <label for="departure_select">Departure:</label>
-      <select name="departure_id" id="departure_select">
-        <% @departures.each do |departure| %>
-            <option><%= departure.departure_airport_name %></option>
-        <% end %>
-      </select>
+      <label>
+        Select an Destination:
+        <select name="destination_id">
+          <% for destination in @destinations %>
+          <option value="<%= destination.id %>"><%= destination.destination_airport_name %></option>
+          <% end %>
+        </select>
+      </label>
     </div>
 
-    <div class="field-group">
-      <label for="destination_select">Destination:</label>
-      <select name="destination_id" id="destination_select">
-        <% @destinations.each do |destination| %>
-            <option><%= destination.destination_airport_name %></option>
-        <% end %>
-      </select>
-    </div>
 
+    <div class="field">
+          <select name="status" id="status">
+            <option value="Available">Available</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
 
 
     <button class="big-button button">Submit Flight</button>

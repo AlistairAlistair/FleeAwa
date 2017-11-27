@@ -8,6 +8,9 @@ get '/flights' do # index
 end
 
 get '/flights/new' do
+  @airlines = Airline.all()
+  @departures = Departure.all()
+  @destinations = Destination.all()
   erb(:"flights/new")
 end
 
