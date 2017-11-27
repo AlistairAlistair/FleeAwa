@@ -19,8 +19,8 @@ CREATE TABLE destinations (
 CREATE TABLE airlines (
   id serial8 primary key,
   airline_name VARCHAR(255),
-  phone VARCHAR(255),
-  email VARCHAR(255)
+  website VARCHAR(255),
+  logo VARCHAR(255)
 );
 
 CREATE TABLE flights (

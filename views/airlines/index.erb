@@ -4,17 +4,17 @@
   <tr>
     <th>Name</th>
     <th></th>
-    <th>Phone</th>
+    <th>Website</th>
     <th></th>
-    <th>Email</th>
+    <th>Logo</th>
   </tr>
   <% for airline in @airlines %>
   <tr>
     <td><%= airline.airline_name %></td>
     <td>|</td>
-    <td><%= airline.phone %></td>
+    <td><a target="_blank" href="https://www.<%= airline.website %>"><%= airline.website %></a></td>
     <td>|</td>
-    <td><%= airline.email %></td>
+    <td><img src="../images/airline_logos/<%= airline.logo %>"></td>
     <td>
       <form method="get" action="/airlines/<%= airline.id %>/edit">
         <button class="big-button button">Edit</button>

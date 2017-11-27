@@ -4,11 +4,39 @@ require_relative('../models/destination')
 require_relative('../models/flight')
 
 airline1 = Airline.new({
-  "airline_name" => "McHaggis Airways",
-  "phone" => "0123 4234 342",
-  "email" => "contact@mchaggisairways.com"
+  "airline_name" => "Lufthansa",
+  "website" => "lufthansa.com",
+  "logo" => "lufthansa.png"
   })
 airline1.save()
+
+airline2 = Airline.new({
+  "airline_name" => "British Airways",
+  "website" => "britishairways.com",
+  "logo" => "ba.jpg"
+  })
+airline2.save()
+
+airline3 = Airline.new({
+  "airline_name" => "Ryanair",
+  "website" => "ryanair.com",
+  "logo" => "ryanair.png"
+  })
+airline3.save()
+
+airline4 = Airline.new({
+  "airline_name" => "Emirates",
+  "website" => "emirates.com",
+  "logo" => "emirates.png"
+  })
+airline4.save()
+
+airline5 = Airline.new({
+  "airline_name" => "Easyjet",
+  "website" => "easyjet.com",
+  "logo" => "easyjet.png"
+  })
+airline5.save()
 
 departure1 = Departure.new({
   "departure_airport_name" => "Edinburgh Airport",
