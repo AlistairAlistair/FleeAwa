@@ -94,7 +94,49 @@ flight1 = Flight.new({
   "status" => "available",
   "airline_id" => 1,
   "departure_id" => 2,
-  "destination_id" => 3
+  "destination_id" => 1
   })
 
 flight1.save()
+
+flight2 = Flight.new({
+  "flight_number" => "8302",
+  "ticket_cost" => 180.00,
+  "flight_date" => "2017-12-04",
+  "capacity" => 100,
+  "available_seats" => 12,
+  "status" => "available",
+  "airline_id" => 1,
+  "departure_id" => 2,
+  "destination_id" => 2
+  })
+
+flight2.save()
+
+flight3 = Flight.new({
+  "flight_number" => "8302",
+  "ticket_cost" => 120.00,
+  "flight_date" => "2017-12-04",
+  "capacity" => 100,
+  "available_seats" => 12,
+  "status" => "available",
+  "airline_id" => 1,
+  "departure_id" => 2,
+  "destination_id" => 3
+  })
+
+flight3.save()
+
+flight4 = Flight.new({
+  "flight_number" => "8302",
+  "ticket_cost" => 80.00,
+  "flight_date" => "2017-12-04",
+  "capacity" => 100,
+  "available_seats" => 12,
+  "status" => "available",
+  "airline_id" => 1,
+  "departure_id" => 2,
+  "destination_id" => 4
+  })
+
+flight4.save()
