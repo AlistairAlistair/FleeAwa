@@ -42,7 +42,7 @@
         Select an Airline:
         <select name="airline_id">
           <% for airline in @airlines %>
-          <option value="<%= airline.id %>"><%= airline.airline_name %></option>
+          <option value="<%= airline.id %>" ><%= airline.airline_name %></option>
           <% end %>
         </select>
       </label>

@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Flight
 
-  attr_accessor(:id, :flight_number, :ticket_cost, :flight_date, :capacity, :status, :airline_id, :departure_id, :destination_id)
+  attr_accessor(:id, :flight_number, :ticket_cost, :flight_date, :capacity, :available_seats, :status, :airline_id, :departure_id, :destination_id)
 
 
   def initialize(options)
@@ -10,8 +10,8 @@ class Flight
     @flight_number = options['flight_number']
     @ticket_cost = options['ticket_cost']
     @flight_date = options['flight_date']
-    @capacity = options['capacity']
-    @available_seats = options['available_seats']
+    @capacity = options['capacity'].to_i
+    @available_seats = options['available_seats'].to_i
     @status = options['status']
     @airline_id = options['airline_id'].to_i
     @departure_id = options['departure_id'].to_i
