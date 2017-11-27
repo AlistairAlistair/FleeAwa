@@ -35,7 +35,7 @@ class Flight
   end
 
   def delete()
-    sql = "DELETE FROM deals
+    sql = "DELETE FROM flights
     WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
@@ -84,17 +84,22 @@ class Flight
   end
 
   def update()
-    sql = "UPDATE airlines
+    sql = "UPDATE flights
           SET (flight_number, ticket_cost, flight_date, capacity, available_seats, status, airline_id, departure_id, destination_id)
           = ( $1, $2, $3, $4, $5, $6, $7, $8, $9 )
           WHERE id = $10"
-    values = [@flight_number, @ticket_cost, @flight_date, @capacity, @available_seats, @status, @airline_id, @departure_id, @destination_id]
+    values = [@flight_number, @ticket_cost, @flight_date, @capacity, @available_seats, @status, @airline_id, @departure_id, @destination_id, @id]
     SqlRunner.run( sql, values )
   end
 
   def self.map_items(flight_data)
     return flight_data.map { |flight| Flight.new(flight) }
   end
+
+  def cheap_flights_from_destination
+
+  end
+
 
 
 

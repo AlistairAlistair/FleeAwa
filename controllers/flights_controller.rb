@@ -2,7 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/flight')
 
-get '/flights' do # index
+get '/flights' do
   @flights = Flight.all()
   erb( :"flights/index" )
 end
@@ -22,10 +22,13 @@ end
 
 get '/flights/:id/edit' do
   @flight = Flight.find(params[:id])
+  @airlines = Airline.all()
+  @departures = Departure.all()
+  @destinations = Destination.all()
   erb (:"flights/edit")
 end
 
 put '/flights/:id' do
-  flight.new(params).update
+  Flight.new(params).update
   redirect to "/flights"
 end
