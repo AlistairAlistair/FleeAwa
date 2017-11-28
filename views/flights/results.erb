@@ -1,5 +1,8 @@
 <h1>Flights</h1>
 
+
+
+
 <table>
   <tr>
     <th>Date</th>
@@ -14,7 +17,7 @@
     <th></th>
     <th>Status</th>
   </tr>
-  <% for flight in @flights %>
+  <% for flight in @results %>
   <tr>
     <td><%= flight.flight_date %></td>
     <td>|</td>
@@ -28,16 +31,10 @@
     <td>|</td>
     <td><%= flight.status %></td>
     <td>
-      <form method="get" action="/flights/<%= flight.id %>/edit">
-        <button class="big-button button">Edit</button>
-      </form>
     </td>
   </tr>
   <% end %>
   </table>
 
-  <form method="get" action="/flights/new">
-
-  <button class="big-button button">Add a new Flight</button>
 
   </form>

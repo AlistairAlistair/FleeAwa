@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require('pry-byebug')
 
 class Flight
 
@@ -104,7 +105,18 @@ class Flight
     return results.map { |flight| Flight.new( flight ) }
   end
 
+  def self.flight_search(flight_date, departure_city, destination_city)
 
-
+    sql = "SELECT *
+           FROM flights
+           INNER JOIN departures ON departures.id = flights.departure_id
+           INNER JOIN airlines ON airlines.id = flights.airline_id
+           INNER JOIN destinations ON destinations.id = flights.destination_id
+           WHERE flight_date = $1 AND departure_id = $2 AND destination_id = $3
+           ORDER BY ticket_cost ASC"
+    values = [flight_date, departure_city.to_i, destination_city.to_i]
+    results = SqlRunner.run(sql, values)
+    return results.map { |flight| Flight.new( flight ) }
+  end
 
 end

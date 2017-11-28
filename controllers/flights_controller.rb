@@ -1,6 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/flight')
+require('pry-byebug')
 
 get '/flights' do
   @flights = Flight.all()
@@ -12,12 +13,6 @@ get '/flights/new' do
   @departures = Departure.all()
   @destinations = Destination.all()
   erb(:"flights/new")
-end
-
-post '/flights' do
-  flight = Flight.new(params)
-  flight.save
-  redirect to("/flights")
 end
 
 get '/flights/:id/edit' do
@@ -34,6 +29,15 @@ put '/flights/:id' do
 end
 
 post '/flights/search' do
-   @flights = Flight.cheap_flights
-  erb (:"flights/search")
+  date = params[:flight_date]
+  departure = params[:departure_id]
+  destination = params[:destination_id]
+  @results = Flight.flight_search(date, departure, destination)
+  erb (:"flights/results")
+end
+
+post '/flights' do
+  flight = Flight.new(params)
+  flight.save
+  redirect to("/flights")
 end
