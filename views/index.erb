@@ -1,11 +1,14 @@
+<section class="hero">
+   <div class="hero-body">
+
 <h2>Search Flights</h2>
 
 
 <form method="post" action="flights/search">
   <p>Date:</p>
-  <p><input type="date" name="flight_date"></p>
+  <p><input type="date" name="flight_date" value="2017-11-28"></p>
   <p>Departure: </p>
-  <select name="departure_id" id="departure_select">
+  <select name="departure_id" id="departure_select" value="what">
     <% @departures.each do |departure| %>
     <option value="<%= departure.id %>"><%= departure.departure_city %></option>
     <% end %>
@@ -18,3 +21,6 @@
   </select>
   <p><input type="submit"></p>
 </form>
+
+</div>
+</section>

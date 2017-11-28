@@ -29,6 +29,8 @@ put '/flights/:id' do
 end
 
 post '/flights/search' do
+  @departures = Departure.all()
+  @destinations = Destination.all()
   date = params[:flight_date]
   departure = params[:departure_id]
   destination = params[:destination_id]

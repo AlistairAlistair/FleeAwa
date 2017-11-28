@@ -1,6 +1,23 @@
 <h1>Flights</h1>
 
 
+<form method="post" action="./search">
+  <p>Date:</p>
+  <p><input type="date" name="flight_date"></p>
+  <p>Departure: </p>
+  <select name="departure_id" id="departure_select">
+    <% @departures.each do |departure| %>
+    <option value="<%= departure.id %>"><%= departure.departure_city %></option>
+    <% end %>
+  </select>
+  <p>Destination:</p>
+  <select name="destination_id" id="destination_select">
+    <% @destinations.each do |destination| %>
+    <option value="<%= destination.id %>"><%= destination.destination_city %></option>
+    <% end %>
+  </select>
+  <p><input type="submit"></p>
+</form>
 
 
 <table>
@@ -15,9 +32,12 @@
     <th></th>
     <th>Airline</th>
     <th></th>
-    <th>Status</th>
+    <th>Price</th>
   </tr>
   <% for flight in @results %>
+  <% var1 = flight.available_seats%>
+  <% var2 = flight.capacity%>
+  <% var3 = flight.ticket_cost%>
   <tr>
     <td><%= flight.flight_date %></td>
     <td>|</td>
@@ -29,12 +49,9 @@
     <td>|</td>
     <td><%= flight.airline.airline_name %></td>
     <td>|</td>
-    <td><%= flight.status %></td>
+    <td>£<= flight.ticket_cost</td>
     <td>
     </td>
   </tr>
   <% end %>
   </table>
-
-
-  </form>

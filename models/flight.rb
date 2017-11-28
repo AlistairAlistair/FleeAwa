@@ -119,4 +119,15 @@ class Flight
     return results.map { |flight| Flight.new( flight ) }
   end
 
+  def flight_discount(available_seats, capacity, ticket_cost)
+    if available_seats > 0.8 * capacity
+      price = ticket_cost * 1
+    elsif available_seats > 0.5 * capacity
+      price = ticket_cost * 2
+    else available_seats < 0.5 * capacity
+      price = ticket_cost * 4
+    end
+    return price
+  end
+
 end
