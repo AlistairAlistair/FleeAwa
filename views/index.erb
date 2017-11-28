@@ -1,1 +1,20 @@
-<h1> Home Page </h1>
+<h2>Search Flights</h2>
+
+
+<form method="post" action="flights/search">
+  <p>Date:</p>
+  <p><input type="date" name="flight_date"></p>
+  <p>Departure: </p>
+  <select name="departure_id" id="departure_select">
+    <% @departures.each do |departure| %>
+    <option ><%= departure.departure_city %></option>
+    <% end %>
+  </select>
+  <p>Destination:</p>
+  <select name="destination_id" id="destination_select">
+    <% @destinations.each do |destination| %>
+    <option><%= destination.destination_city %></option>
+    <% end %>
+  </select>
+  <p><input type="submit"></p>
+</form>

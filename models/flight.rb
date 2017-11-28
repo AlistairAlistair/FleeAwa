@@ -96,8 +96,12 @@ class Flight
     return flight_data.map { |flight| Flight.new(flight) }
   end
 
-  def cheap_flights_from_destination
-
+  def self.cheap_flights
+    sql = "SELECT * FROM flights
+    ORDER BY ticket_cost ASC"
+    values = []
+    results = SqlRunner.run( sql, values )
+    return results.map { |flight| Flight.new( flight ) }
   end
 
 

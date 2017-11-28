@@ -32,3 +32,8 @@ put '/flights/:id' do
   Flight.new(params).update
   redirect to "/flights"
 end
+
+post '/flights/search' do
+   @flights = Flight.cheap_flights
+  erb (:"flights/search")
+end
