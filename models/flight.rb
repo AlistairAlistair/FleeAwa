@@ -120,14 +120,31 @@ class Flight
   end
 
   def flight_discount(available_seats, capacity, ticket_cost)
-    if available_seats > 0.8 * capacity
+      seats = ""
+    if available_seats > 1 * capacity
       price = ticket_cost * 1
+      seats = "High"
     elsif available_seats > 0.5 * capacity
       price = ticket_cost * 2
+      seats = "Medium"
     else available_seats < 0.5 * capacity
       price = ticket_cost * 4
+      seats = "Low"
     end
-    return price
+    discount_price = (price / 100)
+    return discount_price.to_s
+  end
+
+  def seat_availability(available_seats, capacity)
+      seats = ""
+    if available_seats > 0.9 * capacity
+      seats = "High"
+    elsif available_seats > 0.5 * capacity
+      seats = "Medium"
+    else available_seats < 0.5 * capacity
+      seats = "Low"
+    end
+    return seats
   end
 
 end
