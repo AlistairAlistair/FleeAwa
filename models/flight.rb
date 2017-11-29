@@ -93,6 +93,11 @@ class Flight
     SqlRunner.run( sql, values )
   end
 
+  def book
+    @status = 'f'
+    update()
+  end
+
   def self.map_items(flight_data)
     return flight_data.map { |flight| Flight.new(flight) }
   end
@@ -153,6 +158,18 @@ class Flight
       results = SqlRunner.run(sql, values)
       return results.map { |flight| Flight.new( flight ) }
     end
+
+    def self.flight_search_status_false
+
+      sql = "SELECT *
+             FROM flights
+             WHERE status = false
+             "
+      values = []
+      results = SqlRunner.run(sql, values)
+      return results.map { |flight| Flight.new( flight ) }
+    end
+
 
   def flight_discount(available_seats, capacity, ticket_cost)
     if available_seats > 1 * capacity

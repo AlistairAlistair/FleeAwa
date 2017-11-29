@@ -59,7 +59,8 @@
     <td><%= flight.seat_availability(var1, var2) %></td>
     <td>|</td>
       <td>
-        <form method="get" action="/flights/<%= flight.id %>/add">
+        <form method="post" action="/flights/<%= flight.id %>/add">
+            <input type="hidden" name="_method" value="put"/>
           <button class="big-button button">Add to Itinerary</button>
         </form>
       </td>

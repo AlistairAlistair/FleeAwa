@@ -23,6 +23,13 @@ get '/flights/:id/edit' do
   erb (:"flights/edit")
 end
 
+
+put '/flights/:id/add' do
+  @flight = Flight.find(params[:id])
+  @flight.book()
+  redirect to "/flights/itinerary"
+end
+
 put '/flights/:id' do
   Flight.new(params).update
   redirect to "/flights"
@@ -47,6 +54,11 @@ post '/flights/search' do
       @results = Flight.flight_search(date, departure, destination)
     end
     erb (:"flights/results")
+end
+
+get '/flights/itinerary' do
+  @results = Flight.flight_search_status_false
+  erb (:"flights/itinerary")
 end
 
 post '/flights' do

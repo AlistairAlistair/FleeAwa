@@ -1,0 +1,38 @@
+<h1>Itinerary</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th></th>
+    <th>Number</th>
+    <th></th>
+    <th>Departure</th>
+    <th></th>
+    <th>Destination</th>
+    <th></th>
+    <th>Airline</th>
+    <th></th>
+    <th>Price</th>
+    <th></th>
+    <th>Availability</th>
+  </tr>
+  <% for flight in @results %>
+  <tr>
+    <td><%= flight.flight_date %></td>
+    <td>|</td>
+    <td><%= flight.flight_number %></td>
+    <td>|</td>
+    <td><%= flight.departure.departure_city %></td>
+    <td>|</td>
+    <td><%= flight.destination.destination_city %></td>
+    <td>|</td>
+    <td><%= flight.airline.airline_name %></td>
+    <td>|</td>
+      <td>
+        
+      </td>
+
+    </td>
+  </tr>
+  <% end %>
+  </table>

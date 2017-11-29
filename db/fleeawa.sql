@@ -31,7 +31,7 @@ CREATE TABLE flights (
   flight_date DATE,
   capacity INT8,
   available_seats INT8,
-  status VARCHAR(255),
+  status BOOLEAN,
   airline_id INT8 REFERENCES airlines(id),
   departure_id INT8 REFERENCES departures(id),
   destination_id INT8 REFERENCES destinations(id)
