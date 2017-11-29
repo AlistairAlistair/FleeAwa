@@ -1,0 +1,31 @@
+<h1>Airports</h1>
+
+<table>
+  <tr>
+    <th>Airport Name</th>
+    <th></th>
+    <th>City</th>
+    <th></th>
+    <th>Country</th>
+  </tr>
+  <% for airport in @airports %>
+  <tr>
+    <td><%= airport.airport_name %></td>
+    <td>|</td>
+    <td><%= airport.city %></td>
+    <td>|</td>
+    <td><%= airport.country %></td>
+    <td>
+      <form method="get" action="/airports/<%= airport.id %>/edit">
+        <button class="big-button button">Edit</button>
+      </form>
+    </td>
+  </tr>
+  <% end %>
+  </table>
+
+  <form method="get" action="/airports/new">
+
+  <button class="big-button button">Add a new Airport</button>
+
+  </form>

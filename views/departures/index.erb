@@ -5,6 +5,8 @@
     <th>Airport Name</th>
     <th></th>
     <th>City</th>
+    <th></th>
+    <th>Country</th>
   </tr>
   <% for departure in @departures %>
   <tr>
@@ -12,6 +14,8 @@
     <td>|</td>
     <td><%= departure.departure_city %></td>
     <td>
+      <td><%= departure.dep_country %></td>
+      <td>
       <form method="get" action="/departures/<%= departure.id %>/edit">
         <button class="big-button button">Edit</button>
       </form>

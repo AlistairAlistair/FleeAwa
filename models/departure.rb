@@ -2,12 +2,13 @@ require_relative('../db/sql_runner.rb')
 
 class Departure
 
-  attr_accessor( :id, :departure_airport_name, :departure_city)
+  attr_accessor( :id, :departure_airport_name, :departure_city, :dep_country)
 
   def initialize(options)
     @id = options['id'].to_i
     @departure_airport_name = options['departure_airport_name']
     @departure_city = options['departure_city']
+    @dep_country = options['dep_country']
   end
 
   def self.all()
@@ -18,10 +19,10 @@ class Departure
   end
 
   def save()
-    sql = "INSERT INTO departures (departure_airport_name, departure_city)
-           VALUES ($1, $2 )
+    sql = "INSERT INTO departures (departure_airport_name, departure_city, dep_country)
+           VALUES ($1, $2, $3 )
            RETURNING id"
-    values = [@departure_airport_name, @departure_city]
+    values = [@departure_airport_name, @departure_city, @dep_country]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -50,9 +51,9 @@ class Departure
 
   def update()
     sql = "UPDATE departures
-          SET (departure_airport_name, departure_city) = ($1, $2)
+          SET (departure_airport_name, departure_city, dep_country) = ($1, $2, $3)
           WHERE id = $3"
-    values = [@departure_airport_name, @departure_city, @id]
+    values = [@departure_airport_name, @departure_city, @dep_country, @id]
     SqlRunner.run( sql, values)
   end
 

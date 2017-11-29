@@ -6,7 +6,8 @@ DROP TABLE departures;
 CREATE TABLE departures (
   id serial8 primary key,
   departure_airport_name VARCHAR(255),
-  departure_city VARCHAR(255)
+  departure_city VARCHAR(255),
+  dep_country VARCHAR(255)
 );
 
 CREATE TABLE destinations (
