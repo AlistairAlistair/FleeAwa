@@ -7,14 +7,14 @@
       <p><input type="date" name="flight_date" value="2017-11-29"></p>
       <p>Departure: </p>
       <select name="departure_id" id="departure_select">
-        <option value="-1">Select your option</option>
+        <option value="-1">Search All</option>
         <% @departures.each do |departure| %>
         <option value="<%= departure.id %>"><%= departure.departure_city %></option>
         <% end %>
       </select>
       <p>Destination:</p>
       <select name="destination_id" id="destination_select">
-         <option value="-1">Select your option</option>
+         <option value="-1">Search All</option>
         <% @destinations.each do |destination| %>
         <option value="<%= destination.id %>"><%= destination.destination_city %></option>
         <% end %>
@@ -48,17 +48,21 @@
     <td>|</td>
     <td><%= flight.flight_number %></td>
     <td>|</td>
-    <td><%= flight.departure.departure_airport_name %></td>
+    <td><%= flight.departure.departure_city %></td>
     <td>|</td>
-    <td><%= flight.destination.destination_airport_name %></td>
+    <td><%= flight.destination.destination_city %></td>
     <td>|</td>
     <td><%= flight.airline.airline_name %></td>
     <td>|</td>
     <td>£<%= flight.flight_discount(var1, var2, var3) %></td>
-    <td>
+    <td>|</td>
     <td><%= flight.seat_availability(var1, var2) %></td>
-    <td>
-
+    <td>|</td>
+      <td>
+        <form method="get" action="/flights/<%= flight.id %>/add">
+          <button class="big-button button">Add to Itinerary</button>
+        </form>
+      </td>
 
     </td>
   </tr>

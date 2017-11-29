@@ -110,7 +110,6 @@ class Flight
     sql = "SELECT *
            FROM flights
            INNER JOIN departures ON departures.id = flights.departure_id
-           INNER JOIN airlines ON airlines.id = flights.airline_id
            INNER JOIN destinations ON destinations.id = flights.destination_id
            WHERE flight_date = $1 AND departure_id = $2 AND destination_id = $3
            ORDER BY ticket_cost ASC"
@@ -123,8 +122,6 @@ class Flight
 
     sql = "SELECT *
            FROM flights
-           INNER JOIN departures ON departures.id = flights.departure_id
-           INNER JOIN airlines ON airlines.id = flights.airline_id
            INNER JOIN destinations ON destinations.id = flights.destination_id
            WHERE flight_date = $1 AND departure_id = $2
            ORDER BY ticket_cost ASC"
@@ -138,8 +135,6 @@ class Flight
     sql = "SELECT *
            FROM flights
            INNER JOIN departures ON departures.id = flights.departure_id
-           INNER JOIN airlines ON airlines.id = flights.airline_id
-           INNER JOIN destinations ON destinations.id = flights.destination_id
            WHERE flight_date = $1 AND destination_id = $2
            ORDER BY ticket_cost ASC"
     values = [flight_date, departure_city.to_i]
@@ -152,9 +147,6 @@ class Flight
 
       sql = "SELECT *
              FROM flights
-             INNER JOIN departures ON departures.id = flights.departure_id
-             INNER JOIN airlines ON airlines.id = flights.airline_id
-             INNER JOIN destinations ON destinations.id = flights.destination_id
              WHERE flight_date = $1
              ORDER BY ticket_cost ASC"
       values = [flight_date]
@@ -163,16 +155,15 @@ class Flight
     end
 
   def flight_discount(available_seats, capacity, ticket_cost)
-      seats = ""
     if available_seats > 1 * capacity
       price = ticket_cost * 1
-      seats = "High"
+
     elsif available_seats > 0.5 * capacity
       price = ticket_cost * 2
-      seats = "Medium"
+
     else available_seats < 0.5 * capacity
       price = ticket_cost * 4
-      seats = "Low"
+
     end
     discount_price = (price / 100)
     return discount_price.to_s

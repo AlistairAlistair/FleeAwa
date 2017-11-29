@@ -35,7 +35,7 @@ post '/flights/search' do
   departure = params[:departure_id]
   destination = params[:destination_id]
     if
-      departure = "-1" && destination = "-1"
+      departure == "-1" && destination == "-1"
       @results = Flight.flight_search_only_date(date)
     elsif
       departure == "-1"
