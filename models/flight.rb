@@ -98,6 +98,11 @@ class Flight
     update()
   end
 
+  def cancel
+    @status = 't'
+    update()
+  end
+
   def self.map_items(flight_data)
     return flight_data.map { |flight| Flight.new(flight) }
   end
@@ -169,6 +174,7 @@ class Flight
       results = SqlRunner.run(sql, values)
       return results.map { |flight| Flight.new( flight ) }
     end
+
 
 
   def flight_discount(available_seats, capacity, ticket_cost)

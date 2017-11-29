@@ -30,6 +30,12 @@ put '/flights/:id/add' do
   redirect to "/flights/itinerary"
 end
 
+put '/flights/:id/remove' do
+  @flight = Flight.find(params[:id])
+  @flight.cancel()
+  redirect to "/flights/itinerary"
+end
+
 put '/flights/:id' do
   Flight.new(params).update
   redirect to "/flights"

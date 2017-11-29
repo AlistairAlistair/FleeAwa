@@ -29,7 +29,10 @@
     <td><%= flight.airline.airline_name %></td>
     <td>|</td>
       <td>
-        
+        <form method="post" action="/flights/<%= flight.id %>/remove">
+            <input type="hidden" name="_method" value="put"/>
+          <button class="big-button button">Remove from Itinerary</button>
+        </form>
       </td>
 
     </td>
