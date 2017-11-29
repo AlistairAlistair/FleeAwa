@@ -34,17 +34,19 @@ post '/flights/search' do
   date = params[:flight_date]
   departure = params[:departure_id]
   destination = params[:destination_id]
-    if departure == "-1"
+    if
+      departure = "-1" && destination = "-1"
+      @results = Flight.flight_search_only_date(date)
+    elsif
+      departure == "-1"
       @results = Flight.flight_search_no_departure(date, destination)
     elsif
       destination == "-1"
       @results = Flight.flight_search_no_destination(date, departure)
     else
       @results = Flight.flight_search(date, departure, destination)
-      erb (:"flights/results")
     end
     erb (:"flights/results")
-
 end
 
 post '/flights' do
