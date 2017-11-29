@@ -119,6 +119,34 @@ class Flight
     return results.map { |flight| Flight.new( flight ) }
   end
 
+  def self.flight_search_no_destination(flight_date, destination_city)
+
+    sql = "SELECT *
+           FROM flights
+           INNER JOIN departures ON departures.id = flights.departure_id
+           INNER JOIN airlines ON airlines.id = flights.airline_id
+           INNER JOIN destinations ON destinations.id = flights.destination_id
+           WHERE flight_date = $1 AND departure_id = $2
+           ORDER BY ticket_cost ASC"
+    values = [flight_date, destination_city.to_i]
+    results = SqlRunner.run(sql, values)
+    return results.map { |flight| Flight.new( flight ) }
+  end
+
+  def self.flight_search_no_departure(flight_date, departure_city)
+
+    sql = "SELECT *
+           FROM flights
+           INNER JOIN departures ON departures.id = flights.departure_id
+           INNER JOIN airlines ON airlines.id = flights.airline_id
+           INNER JOIN destinations ON destinations.id = flights.destination_id
+           WHERE flight_date = $1 AND destination_id = $2
+           ORDER BY ticket_cost ASC"
+    values = [flight_date, departure_city.to_i]
+    results = SqlRunner.run(sql, values)
+    return results.map { |flight| Flight.new( flight ) }
+  end
+
   def flight_discount(available_seats, capacity, ticket_cost)
       seats = ""
     if available_seats > 1 * capacity

@@ -7,12 +7,14 @@
       <p><input type="date" name="flight_date" value="2017-11-29"></p>
       <p>Departure: </p>
       <select name="departure_id" id="departure_select">
+        <option value="-1">Select your option</option>
         <% @departures.each do |departure| %>
         <option value="<%= departure.id %>"><%= departure.departure_city %></option>
         <% end %>
       </select>
       <p>Destination:</p>
       <select name="destination_id" id="destination_select">
+         <option value="-1">Select your option</option>
         <% @destinations.each do |destination| %>
         <option value="<%= destination.id %>"><%= destination.destination_city %></option>
         <% end %>
