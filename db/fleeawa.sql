@@ -26,7 +26,7 @@ CREATE TABLE airlines (
 CREATE TABLE flights (
   id serial8 primary key,
   flight_number VARCHAR(255),
-  ticket_cost FLOAT(2),
+  ticket_cost INT8,
   flight_date DATE,
   capacity INT8,
   available_seats INT8,

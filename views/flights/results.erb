@@ -3,7 +3,7 @@
 
 <form method="post" action="./search">
   <p>Date:</p>
-  <p><input type="date" name="flight_date"></p>
+  <p><input type="date" name="flight_date"  value="2017-11-29"></p>
   <p>Departure: </p>
   <select name="departure_id" id="departure_select">
     <% @departures.each do |departure| %>
@@ -35,9 +35,9 @@
     <th>Price</th>
   </tr>
   <% for flight in @results %>
-  <% var1 = flight.available_seats%>
-  <% var2 = flight.capacity%>
-  <% var3 = flight.ticket_cost%>
+  <% var1 = flight.available_seats.to_i%>
+  <% var2 = flight.capacity.to_i%>
+  <% var3 = flight.ticket_cost.to_i%>
   <tr>
     <td><%= flight.flight_date %></td>
     <td>|</td>
@@ -49,7 +49,7 @@
     <td>|</td>
     <td><%= flight.airline.airline_name %></td>
     <td>|</td>
-    <td>£<= flight.ticket_cost</td>
+    <td>£<%= (flight.flight_discount(var1, var2, var3) / 100).to_s %></td>
     <td>
     </td>
   </tr>
