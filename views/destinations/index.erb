@@ -1,19 +1,24 @@
+<div class="wrapper">
+  <section class="content">
+    <div class="columns">
+      <main class="main">
+
 <h1>Destinations</h1>
 
 <table>
   <tr>
     <th>Airport Name</th>
-    <th></th>
+
     <th>City</th>
-    <th></th>
+
     <th>Country</th>
   </tr>
   <% for destination in @destinations %>
   <tr>
     <td><%= destination.destination_airport_name %></td>
-    <td>|</td>
+
     <td><%= destination.destination_city %></td>
-    <td>|</td>
+
     <td><%= destination.country %></td>
     <td>
       <form method="get" action="/destinations/<%= destination.id %>/edit">
@@ -29,3 +34,10 @@
   <button class="big-button button">Add a new Destination Airport</button>
 
   </form>
+
+</main>
+<aside class="sidebar-first"></aside>
+<aside class="sidebar-second"></aside>
+</div>
+</section>
+</div>

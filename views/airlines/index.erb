@@ -1,20 +1,26 @@
+<div class="wrapper">
+  <section class="content">
+    <div class="columns">
+      <main class="main">
+
+<div style="width:480px; margin:0 auto;">
 <h1>Airlines</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
+
     <th>Website</th>
-    <th></th>
+
     <th>Logo</th>
   </tr>
   <% for airline in @airlines %>
   <tr>
     <td><%= airline.airline_name %></td>
-    <td>|</td>
+
     <td><a target="_blank" href="https://www.<%= airline.website %>"><%= airline.website %></a></td>
-    <td>|</td>
-    <td><img src="../images/airline_logos/<%= airline.logo %>"></td>
+
+    <td><img height="50px" src="../images/airline_logos/<%= airline.logo %>"></td>
     <td>
       <form method="get" action="/airlines/<%= airline.id %>/edit">
         <button class="big-button button">Edit</button>
@@ -26,6 +32,15 @@
 
 <form method="get" action="/airlines/new">
 
-  <button class="big-button button">Add a new Airline</button>
+  <button class="w3-button w3-round-xlarge">Add a new Airline</button>
 
 </form>
+
+</div>
+
+</main>
+<aside class="sidebar-first"></aside>
+<aside class="sidebar-second"></aside>
+</div>
+</section>
+</div>

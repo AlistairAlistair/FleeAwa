@@ -169,6 +169,7 @@ class Flight
       sql = "SELECT *
              FROM flights
              WHERE status = false
+             ORDER BY flight_date ASC
              "
       values = []
       results = SqlRunner.run(sql, values)

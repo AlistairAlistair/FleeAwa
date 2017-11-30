@@ -1,33 +1,44 @@
+<div class="middle_it">
 <h1>Itinerary</h1>
 
 <table>
   <tr>
     <th>Date</th>
-    <th></th>
+
     <th>Number</th>
-    <th></th>
+
     <th>Departure</th>
-    <th></th>
+
     <th>Destination</th>
-    <th></th>
+
     <th>Airline</th>
-    <th></th>
+
     <th>Price</th>
-    <th></th>
+
     <th>Availability</th>
   </tr>
+  <% @total_cost = 0 %>
   <% for flight in @results %>
+  <% var1 = flight.available_seats.to_i%>
+  <% var2 = flight.capacity.to_i%>
+  <% var3 = flight.ticket_cost.to_i%>
+  <% cost = flight.flight_discount(var1, var2, var3).to_i %>
+
   <tr>
     <td><%= flight.flight_date %></td>
-    <td>|</td>
+
     <td><%= flight.flight_number %></td>
-    <td>|</td>
+
     <td><%= flight.departure.departure_city %></td>
-    <td>|</td>
+
     <td><%= flight.destination.destination_city %></td>
-    <td>|</td>
+
     <td><%= flight.airline.airline_name %></td>
-    <td>|</td>
+
+    <td>£<%= cost.to_i %></td>
+
+    <td class ="flight.seat_availability(var1, var2)"><%= flight.seat_availability(var1, var2) %></td>
+
       <td>
         <form method="post" action="/flights/<%= flight.id %>/remove">
             <input type="hidden" name="_method" value="put"/>
@@ -37,5 +48,15 @@
 
     </td>
   </tr>
+
+  <tr>
+
+<% @total_cost += cost %>
+
+</tr>
   <% end %>
   </table>
+
+
+  <span>Your total cost to fleeawa at the moment is: £<%= @total_cost %></span>
+</div>
