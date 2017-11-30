@@ -3,41 +3,43 @@
     <div class="columns">
       <main class="main">
 
-<h1>Destinations</h1>
+        <h1>Destinations</h1>
 
-<table>
-  <tr>
-    <th>Airport Name</th>
+        <form method="get" action="/destinations/new">
 
-    <th>City</th>
+          <button class="button2">Add a new Destination Airport</button>
 
-    <th>Country</th>
-  </tr>
-  <% for destination in @destinations %>
-  <tr>
-    <td><%= destination.destination_airport_name %></td>
+        </form>
 
-    <td><%= destination.destination_city %></td>
+        <table>
+          <tr>
+            <th>Airport Name</th>
 
-    <td><%= destination.country %></td>
-    <td>
-      <form method="get" action="/destinations/<%= destination.id %>/edit">
-        <button class="big-button button">Edit</button>
-      </form>
-    </td>
-  </tr>
-  <% end %>
-  </table>
+            <th>City</th>
 
-  <form method="get" action="/destinations/new">
+            <th>Country</th>
+          </tr>
+          <% for destination in @destinations %>
+          <tr>
+            <td><%= destination.destination_airport_name %></td>
 
-  <button class="big-button button">Add a new Destination Airport</button>
+            <td><%= destination.destination_city %></td>
 
-  </form>
+            <td><%= destination.country %></td>
+            <td>
+              <form method="get" action="/destinations/<%= destination.id %>/edit">
+                <button class="button2">Edit</button>
+              </form>
+            </td>
+          </tr>
+          <% end %>
+        </table>
 
-</main>
-<aside class="sidebar-first"></aside>
-<aside class="sidebar-second"></aside>
-</div>
-</section>
+
+
+      </main>
+      <aside class="sidebar-first"></aside>
+      <aside class="sidebar-second"></aside>
+    </div>
+  </section>
 </div>

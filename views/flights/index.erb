@@ -3,53 +3,51 @@
     <div class="columns">
       <main class="main">
 
-<h1>Flights</h1>
+        <h1>Flights</h1>
 
-<form method="get" action="/flights/new">
+        <form method="get" action="/flights/new">
 
-<button class="button2">Add a new Flight</button>
+          <button class="button2">Add a new Flight</button>
 
-</form>
+        </form>
 
-<table>
-  <tr>
-    <th>Date</th>
+        <table>
+          <tr>
+            <th>Date</th>
 
-    <th>Number</th>
+            <th>Number</th>
 
-    <th>Departure</th>
+            <th>Departure</th>
 
-    <th>Destination</th>
+            <th>Destination</th>
 
-    <th>Airline</th>
+            <th>Airline</th>
 
-  </tr>
-  <% for flight in @flights %>
-  <tr>
-    <td><%= flight.flight_date %></td>
+          </tr>
+          <% for flight in @flights %>
+          <tr>
+            <td><%= flight.flight_date %></td>
 
-    <td><%= flight.flight_number %></td>
+            <td><%= flight.flight_number %></td>
 
-    <td><%= flight.departure.departure_airport_name %></td>
+            <td><%= flight.departure.departure_airport_name %></td>
 
-    <td><%= flight.destination.destination_airport_name %></td>
+            <td><%= flight.destination.destination_airport_name %></td>
 
-    <td><%= flight.airline.airline_name %></td>
+            <td><%= flight.airline.airline_name %></td>
 
-    <td>
-      <form method="get" action="/flights/<%= flight.id %>/edit">
-        <button class="button2">Edit</button>
-      </form>
-    </td>
-  </tr>
-  <% end %>
-  </table>
+            <td>
+              <form method="get" action="/flights/<%= flight.id %>/edit">
+                <button class="button2">Edit</button>
+              </form>
+            </td>
+          </tr>
+          <% end %>
+        </table>
 
-
-
-</main>
-<aside class="sidebar-first"></aside>
-<aside class="sidebar-second"></aside>
-</div>
-</section>
+      </main>
+      <aside class="sidebar-first"></aside>
+      <aside class="sidebar-second"></aside>
+    </div>
+  </section>
 </div>

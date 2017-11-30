@@ -1,15 +1,20 @@
 body {
   height: 100%;
   margin: 0;
-  height: 100%;
-
 }
 
 body * {
   font-family: 'Questrial', sans-serif;
 }
 
+.content {
+  width: 960px;
+  margin: 0 auto;
+}
 
+.center-header {
+
+}
 
 .flex-form > * {
   border:0;
@@ -24,8 +29,6 @@ body * {
   margin-left:auto;
   margin-right:auto;
 }
-
-
 
 .flex-form > *:last-child {
   border-right: 0;
@@ -90,9 +93,6 @@ ul {
     background-color: white;
     color: #ed412a;
 }
-
-
-
 
 .header_far {
     display:flex;
@@ -175,14 +175,9 @@ th {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 
-.High {
-  background-color: green !important;
-}
 
-div.middle_it {
-  margin-left:auto;
-  margin-right:auto;
-}
+
+
 
 body{
   margin: 0;
@@ -203,6 +198,8 @@ body{
   flex: 1;
   order: 2;
   background: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sidebar-first{
   width: 15%;
@@ -213,4 +210,9 @@ body{
   width: 15%;
   order: 3;
   background: white;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
 }
