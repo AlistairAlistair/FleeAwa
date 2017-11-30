@@ -1,62 +1,71 @@
-<div class="middle_it">
-<h1>Itinerary</h1>
+<div class="wrapper">
+  <section class="content">
+    <div class="columns">
+      <main class="main">
 
-<table>
-  <tr>
-    <th>Date</th>
+        <h1>Itinerary</h1>
 
-    <th>Number</th>
+        <table>
+          <tr>
+            <th>Date</th>
 
-    <th>Departure</th>
+            <th>Number</th>
 
-    <th>Destination</th>
+            <th>Departure</th>
 
-    <th>Airline</th>
+            <th>Destination</th>
 
-    <th>Price</th>
+            <th>Airline</th>
 
-    <th>Availability</th>
-  </tr>
-  <% @total_cost = 0 %>
-  <% for flight in @results %>
-  <% var1 = flight.available_seats.to_i%>
-  <% var2 = flight.capacity.to_i%>
-  <% var3 = flight.ticket_cost.to_i%>
-  <% cost = flight.flight_discount(var1, var2, var3).to_i %>
+            <th>Price</th>
 
-  <tr>
-    <td><%= flight.flight_date %></td>
+            <th>Availability</th>
+          </tr>
+          <% @total_cost = 0 %>
+          <% for flight in @results %>
+          <% var1 = flight.available_seats.to_i%>
+          <% var2 = flight.capacity.to_i%>
+          <% var3 = flight.ticket_cost.to_i%>
+          <% cost = flight.flight_discount(var1, var2, var3).to_i %>
 
-    <td><%= flight.flight_number %></td>
+          <tr>
+            <td><%= flight.flight_date %></td>
 
-    <td><%= flight.departure.departure_city %></td>
+            <td><%= flight.flight_number %></td>
 
-    <td><%= flight.destination.destination_city %></td>
+            <td><%= flight.departure.departure_city %></td>
 
-    <td><%= flight.airline.airline_name %></td>
+            <td><%= flight.destination.destination_city %></td>
 
-    <td>£<%= cost.to_i %></td>
+            <td><%= flight.airline.airline_name %></td>
 
-    <td class ="flight.seat_availability(var1, var2)"><%= flight.seat_availability(var1, var2) %></td>
+            <td>£<%= cost.to_i %></td>
 
-      <td>
-        <form method="post" action="/flights/<%= flight.id %>/remove">
-            <input type="hidden" name="_method" value="put"/>
-          <button class="big-button button">Remove from Itinerary</button>
-        </form>
-      </td>
+            <td class="flight.seat_availability(var1, var2)"><%= flight.seat_availability(var1, var2) %></td>
 
-    </td>
-  </tr>
+            <td>
+              <form method="post" action="/flights/<%= flight.id %>/remove">
+                <input type="hidden" name="_method" value="put"/>
+                <button class="button2">Remove from Itinerary</button>
+              </form>
+            </td>
 
-  <tr>
+          </td>
+        </tr>
 
-<% @total_cost += cost %>
+        <tr>
 
-</tr>
-  <% end %>
-  </table>
+          <% @total_cost += cost %>
 
+        </tr>
+        <% end %>
+      </table>
 
-  <span>Your total cost to fleeawa at the moment is: £<%= @total_cost %></span>
+      <span class='button2'>Your total cost to fleeawa at the moment is: £<%= @total_cost %></span>
+
+    </main>
+    <aside class="sidebar-first"></aside>
+    <aside class="sidebar-second"></aside>
+  </div>
+</section>
 </div>
