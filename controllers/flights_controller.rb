@@ -31,7 +31,6 @@ put '/flights/:id/add' do
 end
 
 
-
 put '/flights/:id/remove' do
   @flight = Flight.find(params[:id])
   @flight.cancel()
@@ -73,4 +72,10 @@ post '/flights' do
   flight = Flight.new(params)
   flight.save
   redirect to("/flights")
+end
+
+
+get '/flights/redirect' do
+
+  redirect to("/flights/search")
 end

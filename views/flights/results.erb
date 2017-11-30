@@ -3,9 +3,13 @@
     <div class="columns">
       <main class="main">
 
-        <h1>Flights</h1>
+        <form method="get" action="/flights/new">
+              <span class="heading_pop">Search</span>
+          <button class="button3">Add a new Flight</button>
 
+        </form>
 
+        <div class="upper_margin">
         <form class="flex-form form-width" method="post" action="../flights/search">
 
 
@@ -36,8 +40,7 @@
 
 
         </form>
-
-
+      </div>
         <table>
         <tr>
         <th>Date</th>

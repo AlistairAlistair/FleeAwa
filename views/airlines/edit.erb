@@ -3,11 +3,11 @@
     <div class="columns">
       <main class="main">
 
-<h2>
-  Edit Airline Details
+
+  <span class="heading_pop">Edit Airline</span>
 </h2>
 
-<form method="post" action="/airlines/<%= @airline.id %>">
+<form class="flex-form form-width" method="post" action="/airlines/<%= @airline.id %>">
   <input type="hidden" name="_method" value="put"/>
 
     <div class="field-group">

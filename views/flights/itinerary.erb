@@ -3,11 +3,14 @@
     <div class="columns">
       <main class="main">
 
-        <h1>Itinerary</h1>
+        <form method="post" action="/flights/search">
+              <span class="heading_pop">Itinerary</span>
+          <button class="button3">Book a new Flight</button>
+        </form>
 
         <table>
           <tr>
-            <th>Date</th>
+            <th>Flight_Date</th>
 
             <th>Number</th>
 
@@ -61,7 +64,7 @@
         <% end %>
       </table>
 
-      <span class='button2'>Your total cost to fleeawa at the moment is: £<%= @total_cost %></span>
+      <span class='button4'>Your fleeawa total cost is: <strong>£<%= @total_cost %></strong></span>
 
     </main>
     <aside class="sidebar-first"></aside>
