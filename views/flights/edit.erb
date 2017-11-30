@@ -3,125 +3,95 @@
     <div class="columns">
       <main class="main">
 
+        <span class="heading_pop">Edit Flight</span>
+        <form method="post" action="/flights/<%= @flight.id %>">
+          <input type="hidden" name="_method" value="put"/>
 
-<span class="heading_pop">Edit Flight</span>
-<form method="post" action="/flights/<%= @flight.id %>">
-  <input type="hidden" name="_method" value="put"/>
+          <div class="field-group">
+            <label for="flight_number">Flight Number:</label>
+            <div class="field">
+              <input type="text" name="flight_number" id="flight_number" value="<%= @flight.flight_number %>" required/>
+            </div>
+          </div>
 
-    <div class="field-group">
-      <label for="flight_number">Flight Number:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="flight_number"
-          id="flight_number"
-          value="<%= @flight.flight_number %>"
-          required/>
-      </div>
+          <div class="field-group">
+            <label for="ticket_cost">Ticket Price:</label>
+            <div class="field">
+              <input type="number" name="ticket_cost" id="ticket_cost" value="<%= @flight.ticket_cost %>" required/>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="flight_date">Date:</label>
+            <div class="field">
+              <input type="date" name="flight_date" id="flight_date" value="<%= @flight.flight_date %>" required/>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="available_seats">Available Seats:</label>
+            <div class="field">
+              <input type="number" name="available_seats" id="available_seats" value="<%= @flight.available_seats %>" required/>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="capacity">Total Seats:</label>
+            <div class="field">
+              <input type="number" name="capacity" id="capacity" value="<%= @flight.capacity %>" required/>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="airline_select">Airline:</label>
+            <div class="field">
+              <select name="airline_id" id="airline_select">
+                <% @airlines.each do |airline| %>
+                <option value="<%= airline.id %>" <%= "selected" if @flight.airline_id == airline.id %>><%= airline.airline_name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="departure_select">Departure:</label>
+            <div class="field">
+              <select name="departure_id" id="departure_select">
+                <% @departures.each do |departure| %>
+                <option value="<%= departure.id %>" <%= "selected" if @flight.departure_id == departure.id %>><%= departure.departure_airport_name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="destination_select">Destination:</label>
+            <div class="field">
+              <select name="destination_id" id="destination_select">
+                <% @destinations.each do |destination| %>
+                <option value="<%= destination.id %>" <%= "selected" if @flight.destination_id == destination.id %>><%= destination.destination_airport_name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="destination_select">Status:</label>
+            <div class="field">
+              <select name="status" id="status">
+                <option value="true">Available</option>
+                <option value="false">Booked</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="button2 upper_margin">Confirm</button>
+
+        </form>
+
+      </main>
+      <aside class="sidebar-first"></aside>
+      <aside class="sidebar-second"></aside>
     </div>
-
-    <div class="field-group">
-      <label for="ticket_cost">Ticket Price:</label>
-      <div class="field">
-        <input
-          type="number"
-          name="ticket_cost"
-          id="ticket_cost"
-          value="<%= @flight.ticket_cost %>"
-          required/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label for="flight_date">Date:</label>
-      <div class="field">
-        <input
-          type="date"
-          name="flight_date"
-          id="flight_date"
-          value="<%= @flight.flight_date %>"
-          required/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label for="available_seats">Available Seats:</label>
-      <div class="field">
-        <input
-          type="number"
-          name="available_seats"
-          id="available_seats"
-          value="<%= @flight.available_seats %>"
-          required/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label for="capacity">Total Seats:</label>
-      <div class="field">
-        <input
-          type="number"
-          name="capacity"
-          id="capacity"
-          value="<%= @flight.capacity %>"
-          required/>
-      </div>
-    </div>
-
-
-
-
-
-    <div class="field-group">
-      <label for="airline_select">Airline:</label>
-      <div class="field">
-      <select name="airline_id" id="airline_select">
-        <% @airlines.each do |airline| %>
-        <option value="<%= airline.id %>"<%= "selected" if @flight.airline_id == airline.id %> ><%= airline.airline_name %></option>
-        <% end %>
-      </select>
-    </div>
-    </div>
-
-    <div class="field-group">
-      <label for="departure_select">Departure:</label>
-      <div class="field">
-      <select name="departure_id" id="departure_select">
-        <% @departures.each do |departure| %>
-        <option value="<%= departure.id %>"<%= "selected" if @flight.departure_id == departure.id %>><%= departure.departure_airport_name %></option>
-        <% end %>
-      </select>
-    </div>
-    </div>
-
-    <div class="field-group">
-      <label for="destination_select">Destination:</label>
-      <div class="field">
-      <select name="destination_id" id="destination_select">
-        <% @destinations.each do |destination| %>
-        <option value="<%= destination.id %>"<%= "selected" if @flight.destination_id == destination.id %> ><%= destination.destination_airport_name %></option>
-        <% end %>
-      </select>
-    </div>
-    </div>
-
-    <div class="field-group">
-      <label for="destination_select">Status:</label>
-      <div class="field">
-      <select name="status" id="status">
-        <option value="true">Available</option>
-        <option value="false">Booked</option>
-      </select>
-    </div>
-    </div>
-
-    <button class="big-button button">Confirm</button>
-
-</form>
-
-</main>
-<aside class="sidebar-first"></aside>
-<aside class="sidebar-second"></aside>
-</div>
-</section>
+  </section>
 </div>

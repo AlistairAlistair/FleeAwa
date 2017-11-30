@@ -3,64 +3,39 @@
     <div class="columns">
       <main class="main">
 
+        <span class="heading_pop">Edit Airline</span>
 
-  <span class="heading_pop">Edit Airline</span>
-</h2>
+        <form method="post" action="/airlines/<%= @airline.id %>">
+          <input type="hidden" name="_method" value="put"/>
 
-<form class="flex-form form-width" method="post" action="/airlines/<%= @airline.id %>">
-  <input type="hidden" name="_method" value="put"/>
+          <div class="field-group">
+            <label for="airline-name-field" class="label">Airline Name:</label>
+            <div class="field">
+              <input type="text" name="airline_name" id="airline-name-field" value="<%= @airline.airline_name %>" required/>
+            </div>
+          </div>
 
-    <div class="field-group">
-      <label for="airline-name-field" class="label">Airline Name:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="airline_name"
-          id="airline-name-field"
-          value="<%= @airline.airline_name %>"
-          required
-        />
-     </div>
-    </div>
+          <div class="field-group">
+            <label for="airline-phone-field" class="label">Website:</label>
+            <div class="field">
+              <input type="text" name="website" id="website-field" value="<%= @airline.website %>" required/>
+            </div>
+          </div>
 
-    <div class="field-group">
-      <label for="airline-phone-field" class="label">Website:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="website"
-          id="website-field"
-          value="<%= @airline.website %>"
-          required
-        />
-      </div>
-    </div>
+          <div class="field-group">
+            <label for="logo-field" class="label">Logo:</label>
+            <div class="field">
+              <input type="text" name="logo" id="airline-logo" value="<%= @airline.logo %>" required/>
+            </div>
+          </div>
 
-    <div class="field-group">
-      <label for="logo-field" class="label">Logo:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="logo"
-          id="airline-logo"
-          value="<%= @airline.logo %>"
-          required
-        />
-      </div>
-    </div>
+          <button class="button2 upper_margin">Update Airline</button>
 
+        </form>
 
-
-  <button class="button2">Update Airline</button>
-
-
-</form>
-
-</div>
-
-</main>
-<aside class="sidebar-first"></aside>
-<aside class="sidebar-second"></aside>
-</div>
+    </main>
+    <aside class="sidebar-first"></aside>
+    <aside class="sidebar-second"></aside>
+  </div>
 </section>
 </div>

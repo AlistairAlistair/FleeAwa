@@ -43,48 +43,44 @@
     </div>
 
     <div class="field-group">
-      <label>
-        Select an Airline:
+      <label>Select an Airline:
         <select name="airline_id">
           <% for airline in @airlines %>
           <option value="<%= airline.id %>" ><%= airline.airline_name %></option>
           <% end %>
         </select>
-      </label>
     </div>
 
     <div class="field-group">
-      <label>
-        Select an Departure:
+      <label>Select an Departure:</label>
         <select name="departure_id">
           <% for departure in @departures %>
           <option value="<%= departure.id %>"><%= departure.departure_airport_name %></option>
           <% end %>
         </select>
-      </label>
+
     </div>
 
     <div class="field-group">
       <label>
-        Select an Destination:
+        Select an Destination:</label>
         <select name="destination_id">
           <% for destination in @destinations %>
           <option value="<%= destination.id %>"><%= destination.destination_airport_name %></option>
           <% end %>
         </select>
-      </label>
     </div>
 
-
-    <div class="field">
+    <div class="field-group">
+      <label>Flight Status:</label>
           <select name="status" id="status">
-            <option value="true">Booked</option>
-            <option value="false">Available</option>
+            <option value="true">Available</option>
+            <option value="false">Booked</option>
           </select>
         </div>
 
 
-    <button class="big-button button">Submit Flight</button>
+    <button class="button2 upper_margin">Submit Flight</button>
 
   </div>
 </form>

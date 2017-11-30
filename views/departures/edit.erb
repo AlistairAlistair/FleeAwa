@@ -3,54 +3,35 @@
     <div class="columns">
       <main class="main">
 
+        <span class="heading_pop">Edit Departure</span>
 
-  <span class="heading_pop">Edit Departure</span>
+        <form method="post" action="/departures/<%= @departure.id %>">
+          <input type="hidden" name="_method" value="put"/>
+          <div class="field-group">
+            <label for="departure-name-field" class="label">Airport Name:</label>
+            <div class="field">
+              <input type="text" name="departure_airport_name" id="departure-name-field" value="<%= @departure.departure_airport_name %>" required/>
+            </div>
+          </div>
 
-<form method="post" action="/departures/<%= @departure.id %>">
-  <input type="hidden" name="_method" value="put"/>
-    <div class="field-group">
-      <label for="departure-name-field" class="label">Airport Name:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="departure_airport_name"
-          id="departure-name-field"
-          value="<%= @departure.departure_airport_name %>"
-          required
-        />
-     </div>
+          <div class="field-group">
+            <label for="city-field" class="label">City:</label>
+            <div class="field">
+              <input type="text" name="departure_city" id="city-field" value="<%= @departure.departure_city %>" required/>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="country-field" class="label">Country:</label>
+            <div class="field">
+              <input type="text" name="dep_country" id="dep-country-field" value="<%= @departure.dep_country %>" required/>
+            </div>
+          </div>
+          <button class="button2 upper_margin">Update Departure Airport</button>
+        </form>
+
+      </main>
+      <aside class="sidebar-first"></aside>
+      <aside class="sidebar-second"></aside>
     </div>
-
-    <div class="field-group">
-      <label for="city-field" class="label">City:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="departure_city"
-          id="city-field"
-          value="<%= @departure.departure_city %>"
-          required
-        />
-      </div>
-    </div>
-    <div class="field-group">
-      <label for="country-field" class="label">Country:</label>
-      <div class="field">
-        <input
-          type="text"
-          name="dep_country"
-          id="dep-country-field"
-          value="<%= @departure.dep_country %>"
-          required
-        />
-      </div>
-    </div>
-  <button class="big-button button">Update Departure Airport</button>
-</form>
-
-</main>
-<aside class="sidebar-first"></aside>
-<aside class="sidebar-second"></aside>
-</div>
-</section>
+  </section>
 </div>
