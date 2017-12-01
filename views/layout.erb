@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>FleeAwa.io</title>
-<link rel="stylesheet" type="text/css" href="/css/alistyle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
-<link rel="shortcut icon" href= "/images/favicon/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <head>
+    <title>FleeAwa.io</title>
+    <link rel="stylesheet" type="text/css" href="/css/alistyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-</head>
+  </head>
 
-<body>
-<main>
-  <div >
-  <nav>
-    <ul class="main_nav">
-      <li class="main_nav">
-        <a href="/" class="main_nav">Home</a>
-      </li>
-      <!-- <li class="main_nav">
+  <body>
+    <main>
+      <div >
+        <nav>
+          <ul class="main_nav">
+            <li class="main_nav">
+              <a href="/" class="main_nav">Home</a>
+            </li>
+            <!-- <li class="main_nav">
         <a href="../flights/redirect" method="post" class="main_nav">Search</a>
       </li> -->
-      <li class="main_nav">
-        <a href="/flights" class="main_nav">Flights</a>
-      </li>
-      <li class="main_nav">
-        <a href="/departures" class="main_nav">Departures</a>
-      </li>
-      <li class="main_nav">
-        <a href="/destinations" class="main_nav">Destinations</a>
-      </li>
-      <li class="main_nav">
-        <a href="/airlines" class="main_nav">Airlines</a>
-      </li>
-      <li class="main_nav">
-        <a href="/flights/itinerary" class="main_nav">Itinerary</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-  <section id="content">
-  <%= yield %>
-  </section>
-  </main>
-</body>
+            <li class="main_nav">
+              <a href="/flights" class="main_nav">Flights</a>
+            </li>
+            <li class="main_nav">
+              <a href="/departures" class="main_nav">Departures</a>
+            </li>
+            <li class="main_nav">
+              <a href="/destinations" class="main_nav">Destinations</a>
+            </li>
+            <li class="main_nav">
+              <a href="/airlines" class="main_nav">Airlines</a>
+            </li>
+            <li class="main_nav">
+              <a href="/flights/itinerary" class="main_nav">Itinerary</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <section id="content">
+        <%= yield %>
+      </section>
+    </main>
+  </body>
 </html>

@@ -176,6 +176,21 @@ class Flight
       return results.map { |flight| Flight.new( flight ) }
     end
 
+  def self.multi_search(date, departure, destination)
+    if
+      departure == "-1" && destination == "-1"
+      @results = Flight.flight_search_only_date(date)
+    elsif
+      departure == "-1"
+      @results = Flight.flight_search_no_departure(date, destination)
+    elsif
+      destination == "-1"
+      @results = Flight.flight_search_no_destination(date, departure)
+    else
+      @results = Flight.flight_search(date, departure, destination)
+    end
+  end
+
 
 
   def flight_discount(available_seats, capacity, ticket_cost)

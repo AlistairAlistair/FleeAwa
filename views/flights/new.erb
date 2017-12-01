@@ -3,92 +3,90 @@
     <div class="columns">
       <main class="main">
 
-<span class="heading_pop">Add a new Flight</span>
-<form method="POST" action="/flights">
-  <div class="form-wrapper">
+        <span class="heading_pop">Add a new Flight</span>
+        <form method="POST" action="/flights">
+          <div class="form-wrapper">
 
-    <div class="field-group">
-      <label for="flight_number">Flight Number:</label>
-      <div class="field">
-        <input type="text" name="flight_number" id="flight_number"/>
+            <div class="field-group">
+              <label for="flight_number">Flight Number:</label>
+              <div class="field">
+                <input type="text" name="flight_number" id="flight_number"/>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="ticket_cost">Ticket Price:</label>
+              <div class="field">
+                <input type="number" name="ticket_cost" id="ticket_cost"/>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="flight_date">Date:</label>
+              <div class="field">
+                <input type="date" name="flight_date" id="flight_date"/>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="capacity">Total Seats:</label>
+              <div class="field">
+                <input type="number" name="capacity" id="capacity"/>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="available_seats">Available Seats:</label>
+              <div class="number">
+                <input type="number" name="available_seats" id="available_seats"/>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>Select an Airline:
+                <select name="airline_id">
+                  <% for airline in @airlines %>
+                  <option value="<%= airline.id %>"><%= airline.airline_name %></option>
+                  <% end %>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label>Select an Departure:</label>
+                <select name="departure_id">
+                  <% for departure in @departures %>
+                  <option value="<%= departure.id %>"><%= departure.departure_airport_name %></option>
+                  <% end %>
+                </select>
+
+              </div>
+
+              <div class="field-group">
+                <label>
+                  Select an Destination:</label>
+                <select name="destination_id">
+                  <% for destination in @destinations %>
+                  <option value="<%= destination.id %>"><%= destination.destination_airport_name %></option>
+                  <% end %>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label>Flight Status:</label>
+                <select name="status" id="status">
+                  <option value="true">Available</option>
+                  <option value="false">Booked</option>
+                </select>
+              </div>
+
+              <button class="button2 upper_margin">Submit Flight</button>
+
+            </div>
+          </form>
+
+        </main>
+        <aside class="sidebar-first"></aside>
+        <aside class="sidebar-second"></aside>
       </div>
-    </div>
-
-    <div class="field-group">
-      <label for="ticket_cost">Ticket Price:</label>
-      <div class="field">
-        <input type="number" name="ticket_cost" id="ticket_cost"/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label for="flight_date">Date:</label>
-      <div class="field">
-        <input type="date" name="flight_date" id="flight_date"/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label for="capacity">Total Seats:</label>
-      <div class="field">
-        <input type="number" name="capacity" id="capacity"/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label for="available_seats">Available Seats:</label>
-      <div class="number">
-        <input type="number" name="available_seats" id="available_seats"/>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <label>Select an Airline:
-        <select name="airline_id">
-          <% for airline in @airlines %>
-          <option value="<%= airline.id %>" ><%= airline.airline_name %></option>
-          <% end %>
-        </select>
-    </div>
-
-    <div class="field-group">
-      <label>Select an Departure:</label>
-        <select name="departure_id">
-          <% for departure in @departures %>
-          <option value="<%= departure.id %>"><%= departure.departure_airport_name %></option>
-          <% end %>
-        </select>
-
-    </div>
-
-    <div class="field-group">
-      <label>
-        Select an Destination:</label>
-        <select name="destination_id">
-          <% for destination in @destinations %>
-          <option value="<%= destination.id %>"><%= destination.destination_airport_name %></option>
-          <% end %>
-        </select>
-    </div>
-
-    <div class="field-group">
-      <label>Flight Status:</label>
-          <select name="status" id="status">
-            <option value="true">Available</option>
-            <option value="false">Booked</option>
-          </select>
-        </div>
-
-
-    <button class="button2 upper_margin">Submit Flight</button>
-
+    </section>
   </div>
-</form>
-
-
-</main>
-<aside class="sidebar-first"></aside>
-<aside class="sidebar-second"></aside>
-</div>
-</section>
-</div>

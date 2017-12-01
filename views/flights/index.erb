@@ -3,52 +3,49 @@
     <div class="columns">
       <main class="main">
 
-
-
-
         <form method="get" action="/flights/new">
-              <span class="heading_pop">Flights</span>
+          <span class="heading_pop">Flights</span>
           <button class="button3">Add a new Flight</button>
 
         </form>
         <div>
-        <table>
-          <tr>
-            <th>Travel_Date</th>
+          <table>
+            <tr>
+              <th>Travel_Date</th>
 
-            <th>Number</th>
+              <th>Number</th>
 
-            <th>Departure</th>
+              <th>Departure</th>
 
-            <th>Destination</th>
+              <th>Destination</th>
 
-            <th>Airline</th>
+              <th>Airline</th>
 
-          </tr>
-          <% for flight in @flights %>
-          <tr>
-            <td><%= flight.flight_date %></td>
+            </tr>
+            <% for flight in @flights %>
+            <tr>
+              <td><%= flight.flight_date %></td>
 
-            <td><%= flight.flight_number %></td>
+              <td><%= flight.flight_number %></td>
 
-            <td><%= flight.departure.departure_airport_name %></td>
+              <td><%= flight.departure.departure_airport_name %></td>
 
-            <td><%= flight.destination.destination_airport_name %></td>
+              <td><%= flight.destination.destination_airport_name %></td>
 
-            <td><%= flight.airline.airline_name %></td>
+              <td><%= flight.airline.airline_name %></td>
 
-            <td>
-              <form method="get" action="/flights/<%= flight.id %>/edit">
-                <button class="button2">Edit</button>
-              </form>
-            </td>
-          </tr>
-          <% end %>
-        </table>
+              <td>
+                <form method="get" action="/flights/<%= flight.id %>/edit">
+                  <button class="button2">Edit</button>
+                </form>
+              </td>
+            </tr>
+            <% end %>
+          </table>
 
-      </main>
-      <aside class="sidebar-first"></aside>
-      <aside class="sidebar-second"></aside>
-    </div>
-  </section>
-</div>
+        </main>
+        <aside class="sidebar-first"></aside>
+        <aside class="sidebar-second"></aside>
+      </div>
+    </section>
+  </div>
